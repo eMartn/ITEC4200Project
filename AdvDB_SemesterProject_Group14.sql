@@ -85,6 +85,60 @@ CREATE TABLE CUSTOMER (
 
 );
 
+-- CREATES A SEQUENCE FOR 
+CREATE SEQUENCE CUSTOMER_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+-- CREATES A SAVEPOINT AFTER THE SEQUENCE WAS RAN
+SAVEPOINT AFTER_CUST_SEQ;
+
+-- INSERT STATEMENTS THAT INSERT DATA INTO THE CUSTOMER TABLE 
+INSERT INTO CUSTOMER(customerID, customerEmail, cc_Information, debitCardInformation)
+VALUES (CUSTOMER_SEQ.NEXTVAL, 'trihardandy@gmail.com', '0099 8877 5647 3893', '9898 6547 4354');
+
+INSERT INTO CUSTOMER(customerID, customerEmail, cc_Information, debitCardInformation)
+VALUES (CUSTOMER_SEQ.NEXTVAL, 'mrdestructoid@yahoo.com', '0192 8383 9402', '0229 3843 2822 1834');
+
+INSERT INTO CUSTOMER(customerID, customerEmail, cc_Information, debitCardInformation)
+VALUES (CUSTOMER_SEQ.NEXTVAL, 'johnsmith4@gmail.com', '0192 9384 2929 2837', '0293 8392 4827 0293');
+
+INSERT INTO CUSTOMER(customerID, customerEmail, cc_Information, debitCardInformation)
+VALUES (CUSTOMER_SEQ.NEXTVAL, 'applegirl@gmail.com', '0293 2818 2838 9201', '0192 0394 3983 7687');
+
+INSERT INTO CUSTOMER(customerID, customerEmail, cc_Information, debitCardInformation)
+VALUES (CUSTOMER_SEQ.NEXTVAL, 'mrcow04@ggc.edu', '0102 9393 8484 2838', '2012 2929 3838 9405');
+
+INSERT INTO CUSTOMER(customerID, customerEmail, cc_Information, debitCardInformation)
+VALUES (CUSTOMER_SEQ.NEXTVAL, 'timcook23@gmail.com', '0192 0202 3939 4848', '1223 2358 8274 3847');
+
+INSERT INTO CUSTOMER(customerID, customerEmail, cc_Information, debitCardInformation)
+VALUES (CUSTOMER_SEQ.NEXTVAL, 'mizzywizzy4@outlook.com', '0192 0292 0394 3894', '2039 3827 2938 3020');
+
+INSERT INTO CUSTOMER(customerID, customerEmail, cc_Information, debitCardInformation)
+VALUES (CUSTOMER_SEQ.NEXTVAL, 'bossman4@gmail.com', '0192 0239 0392 8474', '8374 9201 3847 3829');
+
+INSERT INTO CUSTOMER(customerID, customerEmail, cc_Information, debitCardInformation)
+VALUES (CUSTOMER_SEQ.NEXTVAL, 'milkens97@hotmail.com', '9384 2828 1736 8291', '0292 3847 2819 1928');
+
+INSERT INTO CUSTOMER(customerID, customerEmail, cc_Information, debitCardInformation)
+VALUES (CUSTOMER_SEQ.NEXTVAL, 'pastelle99@gmail.com', '9283 0293 2818 2837', '8394 9283 2736 2728');
+
+INSERT INTO CUSTOMER(customerID, customerEmail, cc_Information, debitCardInformation)
+VALUES (CUSTOMER_SEQ.NEXTVAL, 'noshotbucko@hotmail.com', '6969 4200 4546 8372', '6924 3748 2893 7346');
+
+-- SELECT STATEMENT TO SEE DATA IN TABLE AFTER THE INSERT COMMAND HAS BEEN RAN
+SELECT * FROM CUSTOMER;
+
+-- UPDATE COMMAND TO UPDATE SOME INFORMATION IN THE CUSTOMER TABLE
+UPDATE CUSTOMER
+SET cc_information = '0192 8383 9402 9898', debitCardInformation = '9898 6547 4354 3783'
+WHERE customerid = 1;
+
+-- SAVEPOINT CREATED AFTERWARDS
+SAVEPOINT AFTER_CUSTOMER_SEQ;
+
+
 -- CREATES EMPLOYEE TBALE
 CREATE TABLE EMPLOYEE (
 
@@ -106,6 +160,8 @@ CREATE TABLE EMPLOYEE (
     REFERENCES STORES (storeID)
     
 );
+
+
 
 -- CREATES THE PRODUCT TABLE 
 CREATE TABLE PRODUCT (
