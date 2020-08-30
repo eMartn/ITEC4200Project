@@ -24,6 +24,54 @@ CREATE TABLE STORES (
     
 );
 
+-- ALTER COMMAND TO MODIFY TABLE TO CHANGE DATA TYPE VALUE OF phone number
+ALTER TABLE STORES
+MODIFY storePhoneNumber CHAR(10);
+
+
+-- CREATES A SEQUENCE FOR STORES TABLE 
+CREATE SEQUENCE STORES_SEQ 
+START WITH 1
+INCREMENT BY 1;
+
+DESCR STORES;
+
+-- INSERT STATEMENTS THAT INSERT DATA INTO THE STORES TABLE 
+INSERT INTO STORES(storeID, storeZipCode, storeCity, storeStreetAddress, storeState, storePhoneNumber, openHours) 
+VALUES (STORES_SEQ.NEXTVAL, '30093','Norcross', '1243 Bucko St.', 'GA', '6789903893', '9:00am - 10:00pm');
+
+INSERT INTO STORES(storeID, storeZipCode, storeCity, storeStreetAddress, storeState, storePhoneNumber, openHours) 
+VALUES (STORES_SEQ.NEXTVAL, '93003', 'Charlotte', '2134 Cow dr.', 'NC', '6376269283', '9:00am - 10:00pm');
+
+INSERT INTO STORES(storeID, storeZipCode, storeCity, storeStreetAddress, storeState, storePhoneNumber, openHours) 
+VALUES (STORES_SEQ.NEXTVAL, '12628', 'Buffalo', '2369 Air walk ln.', 'NY', '6768893874', '8:00am - 11:00pm');
+
+INSERT INTO STORES(storeID, storeZipCode, storeCity, storeStreetAddress, storeState, storePhoneNumber, openHours) 
+VALUES (STORES_SEQ.NEXTVAL, '19384', 'Santa Monica', '7362 Air Union', 'CA', '6467748374', '10:00am - 9:00pm');
+
+INSERT INTO STORES(storeID, storeZipCode, storeCity, storeStreetAddress, storeState, storePhoneNumber, openHours) 
+VALUES (STORES_SEQ.NEXTVAL, '10394', 'Miami', '0227 Chadwick St.', 'FL', '6863647463', '9:00am - 10:00pm');
+
+INSERT INTO STORES(storeID, storeZipCode, storeCity, storeStreetAddress, storeState, storePhoneNumber, openHours) 
+VALUES (STORES_SEQ.NEXTVAL, '29383', 'Boston', '1010 Brady ln.', 'MA', '5758379383', '9:00am - 11:00pm');
+
+INSERT INTO STORES(storeID, storeZipCode, storeCity, storeStreetAddress, storeState, storePhoneNumber, openHours) 
+VALUES (STORES_SEQ.NEXTVAL, '42069', 'Austin', '9696 peepo dr.', 'TX', '7689875566', '10:00am - 11:00pm');
+
+INSERT INTO STORES(storeID, storeZipCode, storeCity, storeStreetAddress, storeState, storePhoneNumber, openHours) 
+VALUES (STORES_SEQ.NEXTVAL, '36825', 'Hollywood', '6789 Agren dr.', 'CA', '4758379383', '8:00am - 10:00pm'); 
+
+INSERT INTO STORES(storeID, storeZipCode, storeCity, storeStreetAddress, storeState, storePhoneNumber, openHours) 
+VALUES (STORES_SEQ.NEXTVAL, '28371', 'Sacramento', '1277 Yeppers dr.', 'CA', '8788289922', '8:00am - 10:00pm');
+
+-- ALLOWS US TO SEE DATA IN THE STORES TABLE
+SELECT storeID FROM STORES;
+
+-- CREATES A SAVEPOINT IN CASE WE NEED TO ROLLBACK 
+SAVEPOINT AFTER_STORES_RUN;
+
+
+
 -- CREATES CUSTOMER TABLE 
 CREATE TABLE CUSTOMER (
 
