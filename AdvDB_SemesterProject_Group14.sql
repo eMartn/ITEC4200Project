@@ -161,6 +161,19 @@ CREATE TABLE EMPLOYEE (
     
 );
 
+ALTER TABLE EMPLOYEE
+MODIFY e_phoneNumber CHAR(10);
+
+CREATE SEQUENCE EMPLOYEE_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+SAVEPOINT AFTER_EMPLOYEE_SEQ;
+
+INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 21, 'John', 'Macintyer', '7673734857', '30093', 'Norcross', '1243 wide peepo St.', 'GA');
+
+
 
 
 -- CREATES THE PRODUCT TABLE 
