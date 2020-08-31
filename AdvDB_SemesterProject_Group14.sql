@@ -65,7 +65,7 @@ INSERT INTO STORES(storeID, storeZipCode, storeCity, storeStreetAddress, storeSt
 VALUES (STORES_SEQ.NEXTVAL, '28371', 'Sacramento', '1277 Yeppers dr.', 'CA', '8788289922', '8:00am - 10:00pm');
 
 -- ALLOWS US TO SEE DATA IN THE STORES TABLE
-SELECT storeID FROM STORES;
+SELECT * FROM STORES;
 
 -- CREATES A SAVEPOINT IN CASE WE NEED TO ROLLBACK 
 SAVEPOINT AFTER_STORES_RUN;
@@ -161,20 +161,57 @@ CREATE TABLE EMPLOYEE (
     
 );
 
+-- ALTER TABLE TO MODIFY THE DATA TYPE FOR PHONE NUMBER
 ALTER TABLE EMPLOYEE
 MODIFY e_phoneNumber CHAR(10);
 
+-- CREATES A SEQUENCE FOR EMPLOYEE
 CREATE SEQUENCE EMPLOYEE_SEQ
 START WITH 1
 INCREMENT BY 1;
 
+-- CREATES A SAVEPOINT 
 SAVEPOINT AFTER_EMPLOYEE_SEQ;
 
+-- INSERTS THE DATA INTO THE EMPLOYEE TABLE
 INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
 VALUES (EMPLOYEE_SEQ.NEXTVAL, 21, 'John', 'Macintyer', '7673734857', '30093', 'Norcross', '1243 wide peepo St.', 'GA');
 
+INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 25, 'Wayne', 'Onslet', '6768599584', '23733', 'Homestead', '1232 kreylost dr.', 'FL');
 
+INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 29, 'Jobin', 'Smith', '6789335262', '32938', 'Sacramento', '2637 Poggers St.', 'CA');
 
+INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 22, 'Common', 'Sense', '8689598457', '23548', 'Belmont', '2343 Castleton ln.', 'NC');
+
+INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 24, 'Bryant', 'Foritsworth', '2486452736', '23748', 'Santa Monica', '8392 Bearstein rd.', 'CA');
+
+INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 23, 'Andrew', 'Smith', '6789489484', '23958', 'Fort Erie', '1203 Ducksworth ln.', 'NY');
+
+INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 26, 'James', 'Akron', '2326689383', '23236', 'Boston', '3454 Goat Ave.', 'MA');
+
+INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 27, 'Tim', 'Duncan', '4568572903', '54875', 'Austin', '8373 Spurs town dr.', 'TX');
+
+INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 28, 'Carson', 'Ahgren', '8696976857', '95373', 'Los Angeles', '6976 Counts ln.', 'CA');
+
+INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 28, 'Clint', 'Salomon', '5768349383', '48948', 'Glendale', '8373 Stevens park St.', 'CA');
+
+INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 24, 'Geralt', 'Benston', '4563478475', '57684', 'Venice', '2486 Old Beans rd.', 'CA');
+
+-- A SELECT STATEMENT SO WE CAN SEE THE TABLE DATA
+SELECT * FROM EMPLOYEE;
+
+-- SAVE POINT AFTER THE SUCCESSFUL EMPLOYEE RUN 
+SAVEPOINT AFTER_EMPLOYEE_RUN;
 
 -- CREATES THE PRODUCT TABLE 
 CREATE TABLE PRODUCT (
