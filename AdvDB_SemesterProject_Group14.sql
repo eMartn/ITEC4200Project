@@ -161,6 +161,7 @@ CREATE TABLE EMPLOYEE (
     
 );
 
+
 -- ALTER TABLE TO MODIFY THE DATA TYPE FOR PHONE NUMBER
 ALTER TABLE EMPLOYEE
 MODIFY e_phoneNumber CHAR(10);
@@ -170,42 +171,43 @@ CREATE SEQUENCE EMPLOYEE_SEQ
 START WITH 1
 INCREMENT BY 1;
 
+
 -- CREATES A SAVEPOINT 
 SAVEPOINT AFTER_EMPLOYEE_SEQ;
 
 -- INSERTS THE DATA INTO THE EMPLOYEE TABLE
 INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
-VALUES (EMPLOYEE_SEQ.NEXTVAL, 21, 'John', 'Macintyer', '7673734857', '30093', 'Norcross', '1243 wide peepo St.', 'GA');
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 1, 'John', 'Macintyer', '7673734857', '30093', 'Norcross', '1243 wide peepo St.', 'GA');
 
 INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
-VALUES (EMPLOYEE_SEQ.NEXTVAL, 25, 'Wayne', 'Onslet', '6768599584', '23733', 'Homestead', '1232 kreylost dr.', 'FL');
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 5, 'Wayne', 'Onslet', '6768599584', '23733', 'Homestead', '1232 kreylost dr.', 'FL');
 
 INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
-VALUES (EMPLOYEE_SEQ.NEXTVAL, 29, 'Jobin', 'Smith', '6789335262', '32938', 'Sacramento', '2637 Poggers St.', 'CA');
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 9, 'Jobin', 'Smith', '6789335262', '32938', 'Sacramento', '2637 Poggers St.', 'CA');
 
 INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
-VALUES (EMPLOYEE_SEQ.NEXTVAL, 22, 'Common', 'Sense', '8689598457', '23548', 'Belmont', '2343 Castleton ln.', 'NC');
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 2, 'Common', 'Sense', '8689598457', '23548', 'Belmont', '2343 Castleton ln.', 'NC');
 
 INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
-VALUES (EMPLOYEE_SEQ.NEXTVAL, 24, 'Bryant', 'Foritsworth', '2486452736', '23748', 'Santa Monica', '8392 Bearstein rd.', 'CA');
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 4, 'Bryant', 'Foritsworth', '2486452736', '23748', 'Santa Monica', '8392 Bearstein rd.', 'CA');
 
 INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
-VALUES (EMPLOYEE_SEQ.NEXTVAL, 23, 'Andrew', 'Smith', '6789489484', '23958', 'Fort Erie', '1203 Ducksworth ln.', 'NY');
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 3, 'Andrew', 'Smith', '6789489484', '23958', 'Fort Erie', '1203 Ducksworth ln.', 'NY');
 
 INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
-VALUES (EMPLOYEE_SEQ.NEXTVAL, 26, 'James', 'Akron', '2326689383', '23236', 'Boston', '3454 Goat Ave.', 'MA');
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 6, 'James', 'Akron', '2326689383', '23236', 'Boston', '3454 Goat Ave.', 'MA');
 
 INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
-VALUES (EMPLOYEE_SEQ.NEXTVAL, 27, 'Tim', 'Duncan', '4568572903', '54875', 'Austin', '8373 Spurs town dr.', 'TX');
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 7, 'Tim', 'Duncan', '4568572903', '54875', 'Austin', '8373 Spurs town dr.', 'TX');
 
 INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
-VALUES (EMPLOYEE_SEQ.NEXTVAL, 28, 'Carson', 'Ahgren', '8696976857', '95373', 'Los Angeles', '6976 Counts ln.', 'CA');
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 8, 'Carson', 'Ahgren', '8696976857', '95373', 'Los Angeles', '6976 Counts ln.', 'CA');
 
 INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
-VALUES (EMPLOYEE_SEQ.NEXTVAL, 28, 'Clint', 'Salomon', '5768349383', '48948', 'Glendale', '8373 Stevens park St.', 'CA');
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 8, 'Clint', 'Salomon', '5768349383', '48948', 'Glendale', '8373 Stevens park St.', 'CA');
 
 INSERT INTO EMPLOYEE(employeeID, STORES_storeID, e_firstName, e_lastName,e_phoneNumber, e_zipCode, e_City, e_streetAddress, e_State)
-VALUES (EMPLOYEE_SEQ.NEXTVAL, 24, 'Geralt', 'Benston', '4563478475', '57684', 'Venice', '2486 Old Beans rd.', 'CA');
+VALUES (EMPLOYEE_SEQ.NEXTVAL, 4, 'Geralt', 'Benston', '4563478475', '57684', 'Venice', '2486 Old Beans rd.', 'CA');
 
 -- A SELECT STATEMENT SO WE CAN SEE THE TABLE DATA
 SELECT * FROM EMPLOYEE;
@@ -226,6 +228,36 @@ CREATE TABLE PRODUCT (
     CONSTRAINT PRODUCT_product_ID_PK PRIMARY KEY (productID)
 
 );
+
+-- CREATES SEQUENCE FOR PRODUCT PRIMARY KEY
+    CREATE SEQUENCE PRODUCT_SEQ
+    START WITH 1
+    INCREMENT BY 1;
+    
+-- INSERTS DATA INTO PRODUCT TABLE
+INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Fish', 13.50, '', '');
+INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Tank', 59.99, '', '');
+INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Tank', 149.99, '', '');
+INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Food', 6.99, '', '');
+INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Filter', 29.99, '', '');
+INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Tool', 8.99, '', '');
+INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Fish', 34.99, '', '');
+INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Fish', 79.99, '', '');
+INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Food', 10.99, '', '');
+INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Filter', 19.99, '', '');
+
+
+
 
 -- CREATES STORES_HAS_PROJECT TABLE 
 CREATE TABLE STORES_HAS_PRODUCT (
@@ -248,6 +280,7 @@ CREATE TABLE STORES_HAS_PRODUCT (
 
 );
 
+DROP TABLE PURCHASE;
 -- CREATES PURCHASE TABLE 
 CREATE TABLE PURCHASE (
 
