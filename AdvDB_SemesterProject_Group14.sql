@@ -236,28 +236,36 @@ CREATE TABLE PRODUCT (
     
 -- INSERTS DATA INTO PRODUCT TABLE
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
-VALUES(PRODUCT_SEQ.NEXTVAL, 'Fish', 13.50, '', '');
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Fish', 13.50, 'Goldfish', 'Orance/White');
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
-VALUES(PRODUCT_SEQ.NEXTVAL, 'Tank', 59.99, '', '');
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Tank', 59.99, 'Medium-sized, 20 gallon tank.', 'Clear');
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
-VALUES(PRODUCT_SEQ.NEXTVAL, 'Tank', 149.99, '', '');
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Tank', 149.99, 'Big 40 Gallon Tank', 'Clear');
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
-VALUES(PRODUCT_SEQ.NEXTVAL, 'Food', 6.99, '', '');
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Food', 6.99, 'Betta fish food pellets.', 'Brown');
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
-VALUES(PRODUCT_SEQ.NEXTVAL, 'Filter', 29.99, '', '');
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Filter', 49.99, 'Automatic water filter.', 'Light blue.');
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
-VALUES(PRODUCT_SEQ.NEXTVAL, 'Tool', 8.99, '', '');
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Tool', 8.99, 'Tank cleaning tool.', 'Silver/White');
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
-VALUES(PRODUCT_SEQ.NEXTVAL, 'Fish', 34.99, '', '');
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Fish', 34.99, 'African Pike', 'Silver');
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
-VALUES(PRODUCT_SEQ.NEXTVAL, 'Fish', 79.99, '', '');
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Fish', 79.99, 'Black Goldfish', 'Black/White');
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
-VALUES(PRODUCT_SEQ.NEXTVAL, 'Food', 10.99, '', '');
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Food', 10.99, 'Goldfish food pellets', 'Brown');
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
-VALUES(PRODUCT_SEQ.NEXTVAL, 'Filter', 19.99, '', '');
+VALUES(PRODUCT_SEQ.NEXTVAL, 'Filter', 19.99, 'Replaceable water filter.', 'White');
 
+-- FIXED TYPO IN FIRST DATA ENTRY FOR PRODUCT TABLE
+UPDATE PRODUCT
+SET productColor = 'Orange/White'
+WHERE productID = 1;
 
+-- A SELECT STATEMENT SO WE CAN SEE THE TABLE DATA
+SELECT * FROM PRODUCT;
 
+-- SAVEPOINT AFTER SUCCESSFUL PRODUCT RUN
+SAVEPOINT AFTER_PRODUCT_RUN;
 
 -- CREATES STORES_HAS_PROJECT TABLE 
 CREATE TABLE STORES_HAS_PRODUCT (
@@ -280,7 +288,37 @@ CREATE TABLE STORES_HAS_PRODUCT (
 
 );
 
-DROP TABLE PURCHASE;
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(1, 5, T, );
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(1, 1, T, 3);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(2, 9, T, 15);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(6, 4, F, 0);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(4, 5, T, x);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(x, x, F, 0);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(x, x, F, 0);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(x, x, T, x);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(x, x, T, x);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(x, x, T, x);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(x, x, T, x);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(x, x, T, x);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(x, x, T, x);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(x, x, T, x);
+INSERT INTO STORES_HAS_PRODUCT
+VALUES(x, x, T, x);
+
 -- CREATES PURCHASE TABLE 
 CREATE TABLE PURCHASE (
 
