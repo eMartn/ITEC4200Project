@@ -237,24 +237,34 @@ CREATE TABLE PRODUCT (
 -- INSERTS DATA INTO PRODUCT TABLE
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
 VALUES(PRODUCT_SEQ.NEXTVAL, 'Fish', 13.50, 'Goldfish', 'Orance/White');
+
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
 VALUES(PRODUCT_SEQ.NEXTVAL, 'Tank', 59.99, 'Medium-sized, 20 gallon tank.', 'Clear');
+
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
 VALUES(PRODUCT_SEQ.NEXTVAL, 'Tank', 149.99, 'Big 40 Gallon Tank', 'Clear');
+
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
 VALUES(PRODUCT_SEQ.NEXTVAL, 'Food', 6.99, 'Betta fish food pellets.', 'Brown');
+
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
 VALUES(PRODUCT_SEQ.NEXTVAL, 'Filter', 49.99, 'Automatic water filter.', 'Light blue.');
+
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
 VALUES(PRODUCT_SEQ.NEXTVAL, 'Tool', 8.99, 'Tank cleaning tool.', 'Silver/White');
+
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
 VALUES(PRODUCT_SEQ.NEXTVAL, 'Fish', 34.99, 'African Pike', 'Silver');
+
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
 VALUES(PRODUCT_SEQ.NEXTVAL, 'Fish', 79.99, 'Black Goldfish', 'Black/White');
+
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
 VALUES(PRODUCT_SEQ.NEXTVAL, 'Food', 10.99, 'Goldfish food pellets', 'Brown');
+
 INSERT INTO PRODUCT(productID, productCategory, productPrice, productDescr, productColor)
 VALUES(PRODUCT_SEQ.NEXTVAL, 'Filter', 19.99, 'Replaceable water filter.', 'White');
+
 
 -- FIXED TYPO IN FIRST DATA ENTRY FOR PRODUCT TABLE
 UPDATE PRODUCT
@@ -291,32 +301,46 @@ CREATE TABLE STORES_HAS_PRODUCT (
 -- INSERTS DATA INTO STORES_HAS_PRODUCT TABLE
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(1, 5, 'T', 5);
+
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(1, 1, 'T', 3);
+
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(2, 9, 'T', 15);
+
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(6, 4, 'F', 0);
+
 INSERT INTO STORES_HAS_PRODUCT
-VALUES(4, 5, 'T', x);
+VALUES(4, 5, 'T', 23);
+
 INSERT INTO STORES_HAS_PRODUCT
-VALUES(9, 12, 'F', 0);
+VALUES(9, 8, 'F', 0);
+
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(9, 9, 'F', 0);
+
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(4, 1, 'T', 3);
+
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(6, 7, 'T', 20);
+
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(8, 10, 'T', 30);
+
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(7, 8, 'F', 0);
+
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(3, 2, 'T', 16);
+
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(5, 10, 'T', 5);
+
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(5, 3, 'F', 0);
+
 INSERT INTO STORES_HAS_PRODUCT
 VALUES(3, 3, 'T', 4);
 
@@ -353,6 +377,52 @@ CREATE TABLE PURCHASE (
     REFERENCES PRODUCT (productID)
 
 );
+
+-- CREATES SEQUENCE FOR PURCHASE TABLE PK
+CREATE SEQUENCE PURCHASE_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+-- INSERTS DATA FOR PURCHASE TABLE
+INSERT INTO PURCHASE(purchaseID, purchaseDate, paymentMethod, customerID, employeeID, STORES_storeID, productID)
+VALUES(PURCHASE_SEQ.NEXTVAL, to_date('2020-01-07', 'YYYY-MM-DD'), 'Cash', 11, 9, 8, 10);
+
+INSERT INTO PURCHASE
+VALUES(PURCHASE_SEQ.NEXTVAL, to_date('2020-01-12', 'YYYY-MM-DD'), 'Credit', 9, 6, 3, 2);
+
+INSERT INTO PURCHASE
+VALUES(PURCHASE_SEQ.NEXTVAL, to_date('2020-01-12', 'YYYY-MM-DD'), 'Debit', 2, 11, 4, 1);
+
+INSERT INTO PURCHASE
+VALUES(PURCHASE_SEQ.NEXTVAL, to_date('2020-02-04', 'YYYY-MM-DD'), 'Debit', 6, 4, 2, 1);
+
+INSERT INTO PURCHASE
+VALUES(PURCHASE_SEQ.NEXTVAL, to_date('2020-03-17', 'YYYY-MM-DD'), 'Debit', 10, 5, 4, 5);
+
+INSERT INTO PURCHASE
+VALUES(PURCHASE_SEQ.NEXTVAL, to_date('2020-03-24', 'YYYY-MM-DD'), 'Cash', 10, 5, 4, 5);
+
+INSERT INTO PURCHASE
+VALUES(PURCHASE_SEQ.NEXTVAL, to_date('2020-04-01', 'YYYY-MM-DD'), 'Cash', 3, 1, 1, 5);
+
+INSERT INTO PURCHASE
+VALUES(PURCHASE_SEQ.NEXTVAL, to_date('2020-04-20', 'YYYY-MM-DD'), 'Credit', 7, 3, 9, 2);
+
+INSERT INTO PURCHASE
+VALUES(PURCHASE_SEQ.NEXTVAL, to_date('2020-04-05', 'YYYY-MM-DD'), 'Cash', 1, 1, 1, 1);
+
+INSERT INTO PURCHASE
+VALUES(PURCHASE_SEQ.NEXTVAL, to_date('2020-05-04', 'YYYY-MM-DD'), 'Credit', 5, 2, 5, 10);
+
+INSERT INTO PURCHASE
+VALUES(PURCHASE_SEQ.NEXTVAL, to_date('2020-06-11', 'YYYY-MM-DD'), 'Credit', 4, 8, 7, 8);
+
+INSERT INTO PURCHASE
+VALUES(PURCHASE_SEQ.NEXTVAL, to_date('2020-07-08', 'YYYY-MM-DD'), 'Debit', 8, 9, 8, 10);
+
+-- A SELECT STATEMENT SO WE CAN SEE THE TABLE DATA
+SELECT * FROM PURCHASE;
+
 
 -- COMMITS 
 COMMIT;
