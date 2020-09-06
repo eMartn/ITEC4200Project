@@ -1,5 +1,5 @@
 -- QUERY 1
--- This query will find all products whos category is a fish and the product color is white or a product whose cateogry is a tank and product color is clear 
+-- This query will find all products whose category is a fish and product color is white or a product whose category is tank and product color is clear.
 SELECT productID AS "ID", productCategory AS "Product", productDescr AS "Description", productColor AS "Color"
 FROM PRODUCT
 WHERE productCategory = 'Fish' AND productColor LIKE '%White%' OR productCategory = 'Tank' AND productColor = 'Clear'
