@@ -9,3 +9,15 @@ WHERE '&state_name' = SUBSTR(STORESTATE, 1, 2) AND '&&first_phone_number' = SUBS
 ORDER BY STORECITY;
 
 UNDEFINE first_phone_number;
+
+--QUERY 5
+-- This query displays the purchase date, the months since new year each purchase 
+-- was made, the payment method used, the id of the employee that made the transaction,
+-- and the associated store id for products with odd numbered product IDs sorted by
+-- ascending employee id.
+SElECT purchaseDate AS "Purchase Date", 
+       ROUND(ABS(MONTHS_BETWEEN(purchaseDate, TO_DATE('01-01-2020', 'MM-DD-YYYY')))) AS "Purchased x Months Since New Year", 
+       paymentMethod AS "Payment Method", employeeID AS "Employee", STORES_storeID AS "Store ID"
+FROM purchase
+WHERE MOD(productID, 2) != 0
+ORDER BY employeeID;
