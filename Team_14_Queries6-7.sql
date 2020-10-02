@@ -13,6 +13,8 @@
 -- If the product is within a certain price, the query will label it as budget, mid range, high range, or expensive 
 -- This will help the user visualize which products are the cheapeast to most expensive. 
 
+SELECT * FROM PRODUCT;
+
 SELECT PRODUCTID AS "ID", PRODUCTCATEGORY AS "Category",PRODUCTDESCR AS "Description", TO_CHAR(PRODUCTPRICE, '$99,999.00') AS "Price",
 ( CASE WHEN PRODUCTPRICE < 40 THEN 'Budget'
 WHEN PRODUCTPRICE < 70 THEN 'Midrange'
