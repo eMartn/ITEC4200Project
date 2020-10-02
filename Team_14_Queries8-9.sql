@@ -1,0 +1,7 @@
+-- Query 8
+-- This query ranks the price of products that are less than $50 and start with an F.
+SELECT PRODUCTCATEGORY AS "ProductCategory", PRODUCTPRICE AS "Product Price", PRODUCTDESCR AS "Product Description", RANK() OVER(ORDER BY PRODUCTPRICE) AS "Rank" FROM PRODUCT
+WHERE PRODUCTCATEGORY LIKE 'F%' AND PRODUCTPRICE < 50
+GROUP BY PRODUCTCATEGORY, PRODUCTPRICE, PRODUCTDESCR;
+
+
