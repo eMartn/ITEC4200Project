@@ -4,4 +4,11 @@ SELECT PRODUCTCATEGORY AS "ProductCategory", PRODUCTDESCR AS "Product Descriptio
 WHERE PRODUCTCATEGORY LIKE 'F%' AND PRODUCTPRICE < 50
 GROUP BY PRODUCTCATEGORY, PRODUCTPRICE, PRODUCTDESCR;
 
-
+-- Query 9
+-- This query finds the employees who have a last name 'Smith' and returns the employee
+-- whose first name is closest to the letter Z. The names are sorted by last name ascending.
+SELECT MAX(e_firstName) AS "First name closest to letter Z", e_lastName AS "Last Name"
+FROM employee
+GROUP BY e_lastName
+HAVING  e_lastName = 'Smith'
+ORDER BY e_lastName;
