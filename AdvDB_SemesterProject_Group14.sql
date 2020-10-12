@@ -135,6 +135,10 @@ UPDATE CUSTOMER
 SET cc_information = '0192 8383 9402 9898', debitCardInformation = '9898 6547 4354 3783'
 WHERE customerid = 1;
 
+UPDATE CUSTOMER
+SET cc_information = ''
+WHERE customerid = 2;
+
 -- SAVEPOINT CREATED AFTERWARDS
 SAVEPOINT AFTER_CUSTOMER_SEQ;
 
