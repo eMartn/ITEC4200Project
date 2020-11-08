@@ -16,5 +16,19 @@ SELECT * FROM employee_stores;
 SELECT STOREID, FIRSTNAME || ' ' || LASTNAME AS "Full Name", STREETADDRESS, STORECITY, STORESTATE FROM employee_stores
 WHERE STORESTATE = 'CA';
 
+--Ch10p2 View 2
+
+
+
+
+
+
+--Creating Index from STORES table on STORESTATE column
+CREATE INDEX store_state
+ON STORES(STORESTATE);
+
+-- Displaying that the index has been created
+-- The second row STORE_STATE is the query created above and is that of a non-PK column
+SELECT * FROM ALL_INDEXES WHERE TABLE_NAME = 'STORES';
 
 
