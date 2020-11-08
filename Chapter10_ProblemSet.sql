@@ -17,10 +17,23 @@ SELECT STOREID, FIRSTNAME || ' ' || LASTNAME AS "Full Name", STREETADDRESS, STOR
 WHERE STORESTATE = 'CA';
 
 --Ch10p2 View 2
+-- View that brings up the total count of each category of product and displays the
+-- category and ID of the item.
+CREATE OR REPLACE VIEW ProductInfoVU ("Product ID", "Product Category", "Count of Product Category")
+AS SELECT productID, productCategory, (SELECT count(productCategory)
+                                         FROM product
+                                         WHERE productCategory = m.productCategory)
+FROM product m
+GROUP BY productID, productCategory
+HAVING productID IN (1, 2, 4, 5, 6)
+ORDER BY productID;
 
+SELECT * FROM ProductInfoVU;
 
-
-
+-- Brings up the categories of product which have a count of 2 in the view.
+SELECT "Product Category"
+FROM ProductInfoVU
+WHERE "Count of Product Category" = 2;
 
 
 --Creating Index from STORES table on STORESTATE column
@@ -31,4 +44,14 @@ ON STORES(STORESTATE);
 -- The second row STORE_STATE is the query created above and is that of a non-PK column
 SELECT * FROM ALL_INDEXES WHERE TABLE_NAME = 'STORES';
 
+-- FLASHBACK Exercise
+CREATE TABLE TEMP_SP(name VARCHAR(25));
 
+INSERT INTO TEMP_SP(name)
+VALUES('Erick');
+
+SELECT * FROM TEMP_SP;
+
+DROP TABLE TEMP_SP;
+
+FLASHBACK TABLE TEMP_SP TO BEFORE DROP;
