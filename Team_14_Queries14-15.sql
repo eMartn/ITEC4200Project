@@ -11,3 +11,13 @@ WHERE E_STATE = 'CA'
 ORDER BY 2;
 
 --Query 15
+-- This query selects all product ids which are between 5 and 10
+-- and excludes product ids which have been in purchases in the purchase table.
+SELECT productid AS "Product ID"
+FROM product
+WHERE productid BETWEEN 5 AND 10
+MINUS
+SELECT productid
+FROM purchase
+ORDER BY 1;
+
